@@ -10,7 +10,10 @@ def index(request):
         })
 
 def post_detail(request):
-    return render(request, 'blog.views.post_detail')
+    post = Post.objects.get(pk=pk)
+    return render(request, 'blog/post_detail.html',{
+        'post': post,
+        })
 
 def post_new(request):
     if request.method == 'POST':
